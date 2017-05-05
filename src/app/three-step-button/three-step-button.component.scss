@@ -1,6 +1,10 @@
+$container-width: 100%;
+$input-width: 30px;
+$initial-height: 30px;
+
 .three-step-container {
-  width: 130px;
-  height: 30px;
+  width: $container-width;
+  height: $initial-height;
   overflow: hidden;
   white-space: nowrap;
   font-size: 0;
@@ -11,8 +15,8 @@
   }
 
   > * {
-    width: 130px;
-    height: 30px;
+    width: 100%;
+    height: $initial-height;
     display: inline-block;
     position: relative;
     transition: all 0.2s linear;
@@ -22,7 +26,7 @@
 
 .second-step {
   background: #fff;
-  padding-left: 30px;
+  padding-left: $input-width;
   font-size: 14px;
 
   label {
@@ -30,7 +34,7 @@
     left: 0;
     top: 0;
     display: block;
-    width: 30px;
+    width: $input-width;
     height: 100%;
     border: 5px solid #41b412;
   }
@@ -76,8 +80,8 @@
 
   .confirm {
     font-size: 0;
-    width: 100px;
-    height: 30px;
+    width: 100%;
+    height: $initial-height;
     overflow: hidden;
     white-space: nowrap;
 
@@ -85,8 +89,8 @@
       font-size: 12px;
       display: inline-block;
       vertical-align: top;
-      width: 100px;
-      height: 30px;
+      width: 100%;
+      height: $initial-height;
       position: relative;
     }
 
@@ -103,7 +107,7 @@
       span:first-child {
         font-size: 16px;
         font-weight: 600;
-        height: 30px;
+        height: $initial-height;
         border-left: none;
         background: #fff;
         position: relative;
@@ -111,8 +115,8 @@
       }
 
       .agree-arrow {
-        width: 30px;
-        height: 30px;
+        width: $input-width;
+        height: $initial-height;
         transform: rotate(45deg);
         position: absolute;
         top: 0;
@@ -131,15 +135,19 @@
 
 @keyframes slide-left-1 {
   0% {left: 0}
-  100% {left: -130px}
+  100% {left: -$container-width}
 }
 
 @keyframes slide-left-2 {
   0% {left: 0}
-  100% {left: -100px}
+  100% {left: -$container-width}
 }
 
 @keyframes slide-left-3 {
-  0% {left: -100px}
+  0% {left: -webkit-calc(-#{$container-width} + #{$input-width})}
   100% {left: 0}
+}
+
+media {
+  
 }

@@ -10,6 +10,8 @@ import {Rate} from '../rate';
 export class RateFormComponent implements OnInit {
   next = false;
   submitted = false;
+  firstRowFocused = true;
+  secondRowFocused = false;
   rateCurrencyForm: FormGroup;
   @Output('rateAdded') rateAdded: EventEmitter<Rate> = new EventEmitter<Rate>();
 
@@ -23,7 +25,7 @@ export class RateFormComponent implements OnInit {
 
   ngOnInit() { }
 
-  buildForm(): void {
+  private buildForm(): void {
     this.rateCurrencyForm = this.fb.group({
       'buy': '',
       'sell': '',
@@ -36,8 +38,7 @@ export class RateFormComponent implements OnInit {
     this.onValueChanged();
   }
 
-  onSubmit({form, valid}: {form: any, valid: boolean}) {
-    console.log(valid);
+  public onSubmit(event, form) {
     let formValue = form.value;
     let rate = new Rate();
 
@@ -49,14 +50,29 @@ export class RateFormComponent implements OnInit {
 
     console.log('on Submit');
     console.log(rate);
-    alert('here');
     this.rateAdded.emit(rate);
     this.submitted = true;
   }
 
-  onNext() {
-    console.log('next');
+  public onNext() {
     this.next = true;
+  }
+
+  public onFocus(event) {
+    if(!event.currentTarget.classList.contains('focus')
+          && event.currentTarget.classList.contains('buy-wrapper')) {
+      this.secondRowFocused = true;
+      this.firstRowFocused = false;
+    } else if(!event.currentTarget.classList.contains('focus')
+          && event.currentTarget.classList.contains('sell-wrapper')) {
+      this.secondRowFocused = false;
+      this.firstRowFocused = true;
+    }
+  }
+
+  public onInputChnaged(event) {
+    console.log(event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.classList);
+    // event.target.value = '';
   }
 
   onValueChanged(data?: any) {

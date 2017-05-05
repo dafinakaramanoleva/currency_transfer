@@ -13,6 +13,8 @@ var RateFormComponent = (function () {
         this.fb = fb;
         this.next = false;
         this.submitted = false;
+        this.firstRowFocused = true;
+        this.secondRowFocused = false;
         this.rateAdded = new core_1.EventEmitter();
         this.currentSellCurrency = 'GBP';
         this.currentBuyCurrency = 'GBP';
@@ -43,8 +45,7 @@ var RateFormComponent = (function () {
             .subscribe(function (data) { return _this.onValueChanged(data); });
         this.onValueChanged();
     };
-    RateFormComponent.prototype.onSubmit = function (form) {
-        // console.log(valid);
+    RateFormComponent.prototype.onSubmit = function (event, form) {
         var formValue = form.value;
         var rate = new rate_1.Rate();
         rate.side = formValue.buy === '' ? 'sell' : 'buy';
@@ -55,11 +56,26 @@ var RateFormComponent = (function () {
         console.log('on Submit');
         console.log(rate);
         this.rateAdded.emit(rate);
-        // this.submitted = true;
+        this.submitted = true;
     };
     RateFormComponent.prototype.onNext = function () {
-        console.log('next');
         this.next = true;
+    };
+    RateFormComponent.prototype.onFocus = function (event) {
+        if (!event.currentTarget.classList.contains('focus')
+            && event.currentTarget.classList.contains('buy-wrapper')) {
+            this.secondRowFocused = true;
+            this.firstRowFocused = false;
+        }
+        else if (!event.currentTarget.classList.contains('focus')
+            && event.currentTarget.classList.contains('sell-wrapper')) {
+            this.secondRowFocused = false;
+            this.firstRowFocused = true;
+        }
+    };
+    RateFormComponent.prototype.onInputChnaged = function (event) {
+        console.log(event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.classList);
+        // event.target.value = '';
     };
     RateFormComponent.prototype.onValueChanged = function (data) {
         if (!this.rateCurrencyForm) {

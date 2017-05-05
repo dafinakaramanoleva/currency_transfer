@@ -40,12 +40,10 @@ export class RatesSectionComponent implements OnInit {
   }
 
   deleteRate(id: string) {
-    console.log(id);
     this.service.deleterateById(id)
         .subscribe(
             result => {
-              // console.log(this.rates[0].uuid);
-              // this.rates = this.rates.filter(rate => result.data.uuid !== rate.uuid)
+              this.rates = this.rates.filter(rate => result.data.uuid !== rate.uuid)
             },
             error => this.errorMessage = <any>error
         )

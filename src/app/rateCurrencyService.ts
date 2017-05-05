@@ -4,12 +4,11 @@ import { Rate } from './rate';
 import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
 
-let headers = new Headers({'Authorization': 'Basic ' +  btoa('stevan@litobac.com:zg758gA4XplGhXWDagQL7tfeNM9qsNyq'), 'Content-Type': 'application/json' });
-let options = new RequestOptions({headers: headers});
+const headers = new Headers({'Authorization': 'Basic ' +  btoa('stevan@litobac.com:zg758gA4XplGhXWDagQL7tfeNM9qsNyq'), 'Content-Type': 'application/json' });
+const options = new RequestOptions({headers: headers});
 
 @Injectable()
 export class RateCurrencyService {
-    rates: Rate[] = [];
     getAllRatesUrl:string = 'http://stage.currencytransfer.com/api/v1/rate_alerts?order=created_at%3Adesc';
     ratesUrl: string = 'http://stage.currencytransfer.com/api/v1/rate_alerts/';
 

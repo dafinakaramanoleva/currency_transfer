@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,8 @@ export class InputComponent implements ControlValueAccessor {
   private value: string;
   private parseError: boolean;
   private data: any;
+  @Output('onInputChanage') onInputChange: EventEmitter<any> = new EventEmitter();
+
 
   @Input()
   label:string;
@@ -18,11 +20,6 @@ export class InputComponent implements ControlValueAccessor {
   placeholder: string;
 
   constructor() { }
-
-  onNotify(message:string):void {
-    console.log('here');
-    alert(message);
-  }
 
   private onChange(event) {
     let newValue = event.target.value;
@@ -56,4 +53,11 @@ export class InputComponent implements ControlValueAccessor {
     return !(charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57));
 
   }
+
+  onClick(event) {
+    // console.log(event);
+    this.onInputChange.emit(event);
+
+  }
+
 }

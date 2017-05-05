@@ -1,18 +1,20 @@
-<form novalidate [formGroup]="rateCurrencyForm" (ngSubmit)="onSubmit(rateCurrencyForm)">
+<form novalidate [formGroup]="rateCurrencyForm" (ngSubmit)="onSubmit($event, rateCurrencyForm)">
     <div *ngIf="formErrors.buy" class="alert alert-danger">
         {{ formErrors.inputError }}
     </div>
-    <div class="sell-wrapper rate-row">
+    <div class="sell-wrapper rate-row" [ngClass]="{focus: firstRowFocused}" (click)="onFocus($event)">
         <app-input formControlName="sell" label="I have (sell)"
-                   [placeholder]="currencySellInputPlaceholder" ngDefaultControl>
+                   [placeholder]="currencySellInputPlaceholder"
+                   (onInputChanage)="onInputChnaged($event)" ngDefaultControl>
         </app-input>
         <app-currency formControlName="currency_sell"
                       (onCurrencyChange)="onCurrencySellChanged($event)" ngDefaultControl>
         </app-currency>
     </div>
-    <div class="buy-wrapper rate-row">
+    <div class="buy-wrapper rate-row" [ngClass]="{focus: secondRowFocused}" (click)="onFocus($event)">
         <app-input label="I want(buy)" formControlName="buy"
-                   [placeholder]="currencyBuyInputPlaceholder" ngDefaultControl></app-input>
+                   [placeholder]="currencyBuyInputPlaceholder"
+                   (onInputChanage)="onInputChnaged($event)" ngDefaultControl></app-input>
         <app-currency formControlName="currency_buy"
                       (onCurrencyChange)="onCurrencyBuyChanged($event)" ngDefaultControl></app-currency>
     </div>
@@ -28,3 +30,4 @@
         <button type="button" class="default" (click)="onNext($event)">Next</button>
     </div>
 </form>
+<p>Form: {{ rateCurrencyForm.value | json }}</p>

@@ -3,6 +3,6 @@
     <label>{{label}}</label>
     <input mdInput placeholder="{{placeholder}}"
            (change)="onChange($event)" (keyup)="onChange($event)"
-           (keypress)="onlyDecimalNumberKey($event)" autofocus>
+           (keypress)="onlyDecimalNumberKey($event)" (click)="onClick($event)">
   </md-input-container>
 </div>

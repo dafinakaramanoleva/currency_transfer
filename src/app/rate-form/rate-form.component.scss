@@ -8,15 +8,45 @@
   }
 }
 
-.rate-row {
-  position: relative;
-  border: 2px solid #c5c5c5;
+/deep/ .rate-row {
+  font-size: 0;
   padding: 0;
   margin: 0;
+  position: relative;
   height: 60px;
-  font-size: 0;
+  border: 2px solid #c5c5c5;
+
   &:nth-child(2) {
     margin-top: -2px;
+  }
+
+  &.focus {
+    border-color: #1691c6;
+    z-index: 1;
+
+    input {
+      &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: grey;
+      }
+      &::-moz-placeholder { /* Firefox 19+ */
+        color: grey;
+      }
+      &:-ms-input-placeholder { /* IE 10+ */
+        color: grey;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        color: grey;
+      }
+    }
+
+    .currency-wrapper {
+      background-color: #1691c6;
+
+      select {
+        color: #fff;
+        background-color: transparent;
+      }
+    }
   }
 }
 

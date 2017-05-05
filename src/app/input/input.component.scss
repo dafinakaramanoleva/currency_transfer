@@ -39,21 +39,6 @@
     border: 0;
     color: #5e5e5e;
     line-height: 22px;
-
-    &:focus, &:active {
-      &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-        color: grey;
-      }
-      &::-moz-placeholder { /* Firefox 19+ */
-        color: grey;
-      }
-      &:-ms-input-placeholder { /* IE 10+ */
-        color: grey;
-      }
-      &:-moz-placeholder { /* Firefox 18- */
-        color: grey;
-      }
-    }
   }
 
 }
