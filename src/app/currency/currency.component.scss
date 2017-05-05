@@ -1,0 +1,35 @@
+/deep/ .currency-wrapper {
+  .mat-input-container {
+    display: block;
+  }
+  .mat-input-wrapper {
+    margin: 0;
+    padding: 0;
+  }
+  .mat-input-underline {
+    display: none;
+  }
+  .mat-input-subscript-wrapper {
+    display: none;
+  }
+
+  input {
+    height: 56px;
+    padding: 4px 12px;
+    background-color: #f8f8f8;
+  }
+
+  select {
+    width: 100%;
+    height: 56px;
+    border: none;
+
+    &:focus, &:hover, &:active {
+      outline: none;
+    }
+  }
+}
+
+/deep/ .cdk-overlay-pane {
+  margin-top: -12px;
+}

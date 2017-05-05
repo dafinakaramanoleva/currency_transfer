@@ -1,0 +1,26 @@
+    <!--<div class="book-wrapper" >-->
+    <!--</div>-->
+    <!--<div class="terms-wrapper" [ngClass]="{'terms-hidden': !isBooked || termsValue}">-->
+      <!--<input id="terms" type="checkbox"  data-md-icheck (change)="updateCheckedOptions($event)" [(ngModel)]="termsValue">-->
+      <!--<label for="terms">I agree</label>-->
+    <!--</div>-->
+    <!--<div class="confirm" [ngClass]="{'confirm-hidden': !termsValue}">-->
+      <!--<button class="default">Confirm</button>-->
+    <!--</div>-->
+
+<div class="three-step-container" [ngClass]="{'step-hidden': isBooked}">
+  <button class="default" (click)="onClick()">Book</button>
+  <div class="second-step">
+    <div class="terms-wrapper">
+      <input id="terms" type="checkbox">
+      <label for="terms"></label>
+      <div class="confirm">
+        <div class="agree">
+          <span>I agree</span>
+          <span class="agree-arrow"></span>
+        </div>
+        <button class="default">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

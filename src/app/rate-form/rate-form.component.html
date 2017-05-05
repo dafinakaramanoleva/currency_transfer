@@ -1,0 +1,30 @@
+<form novalidate [formGroup]="rateCurrencyForm" (ngSubmit)="onSubmit(rateCurrencyForm)">
+    <div *ngIf="formErrors.buy" class="alert alert-danger">
+        {{ formErrors.inputError }}
+    </div>
+    <div class="sell-wrapper rate-row">
+        <app-input formControlName="sell" label="I have (sell)"
+                   [placeholder]="currencySellInputPlaceholder" ngDefaultControl>
+        </app-input>
+        <app-currency formControlName="currency_sell"
+                      (onCurrencyChange)="onCurrencySellChanged($event)" ngDefaultControl>
+        </app-currency>
+    </div>
+    <div class="buy-wrapper rate-row">
+        <app-input label="I want(buy)" formControlName="buy"
+                   [placeholder]="currencyBuyInputPlaceholder" ngDefaultControl></app-input>
+        <app-currency formControlName="currency_buy"
+                      (onCurrencyChange)="onCurrencyBuyChanged($event)" ngDefaultControl></app-currency>
+    </div>
+    <div class="current-rate-wrapper" [hidden]="!next">
+        <p>The mid-market is 0.1453</p>
+        <app-input formControlName="current_rate" label="Please enter your desired client rate"
+                   [placeholder]="currentRatePlaceholder" ngDefaultControl></app-input>
+        <div class="buttons-wrapper mtb30">
+            <button type="submit" class="default">Set new rate alert!</button>
+        </div>
+    </div>
+    <div class="button-wrapper" [hidden]="next">
+        <button type="button" class="default" (click)="onNext($event)">Next</button>
+    </div>
+</form>

@@ -1,0 +1,8 @@
+<div class="input-wrapper">
+  <md-input-container>
+    <label>{{label}}</label>
+    <input mdInput placeholder="{{placeholder}}"
+           (change)="onChange($event)" (keyup)="onChange($event)"
+           (keypress)="onlyDecimalNumberKey($event)" autofocus>
+  </md-input-container>
+</div>

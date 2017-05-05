@@ -1,0 +1,19 @@
+<div class="currency-wrapper">
+  <!--<md-input-container>-->
+    <!--<input mdInput  [formControl]="stateCtrl"-->
+           <!--[value]="currency" (change)="onChange($event)" (keyup)="onChange($event)" required>-->
+  <!--</md-input-container>-->
+  <select (change)="select($event)">
+    <option *ngFor="let currency of filteredCurrencies | async" [value]="currency">
+      {{ currency }}
+    </option>
+  </select>
+  <!--<md-autocomplete #currency="mdAutocomplete" (select)="select(currency)">-->
+    <!--<md-option *ngFor="let currency of filteredCurrencies | async" [value]="currency">-->
+      <!--{{ currency }}-->
+    <!--</md-option>-->
+  <!--</md-autocomplete>-->
+  <!--<div *ngIf="formErrors.currency" class="alert alert-danger">-->
+  <!--{{ formErrors.currency }}-->
+  <!--</div>-->
+</div>

@@ -1,0 +1,28 @@
+<div class="table-wrapper">
+  <table class="table table-responsive">
+    <thead>
+    <tr>
+      <th>Created on</th>
+      <th>Amount</th>
+      <th>Selling</th>
+      <th>Buying</th>
+      <th>Target rate</th>
+      <th>Status</th>
+      <th>Action</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rate of rates">
+        <td>{{rate.created_at | date: 'dd-MMM-yyyy'}}</td>
+        <td>{{rate.amount}}</td>
+        <td>{{rate.sell_currency}}</td>
+        <td>{{rate.buy_currency}}</td>
+        <td>{{rate.target_rate}}</td>
+        <td>{{rate.status}}</td>
+        <td>Email me</td>
+        <td><button (click)="deleteRate(rate.uuid)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

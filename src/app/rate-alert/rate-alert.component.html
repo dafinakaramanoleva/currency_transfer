@@ -1,0 +1,17 @@
+<div class="container">
+  <section class="add-rate-section">
+    <h1>Create a rate alert</h1>
+    <app-rate-form (rateAdded)="addRateHandler($event)"></app-rate-form>
+  </section>
+</div>
+<div class="container">
+  <section class="rates-section">
+    <h1>RATE ALERTS & MARKET ORDERS</h1>
+    <app-rates-section #rateSection></app-rates-section>
+  </section>
+</div>
+<div class="container">
+  <section class="three-step-button">
+    <app-three-step-button></app-three-step-button>
+  </section>
+</div>

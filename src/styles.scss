@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+span.mat-input-placeholder-wrapper {
+  display: none!important;
+}
+
+span.mat-input-placeholder-wrapper:after {
+  display: none!important;
+}
+
+section {
+  margin: 40px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.06);
+}
+
+
+//Buttons
+button.default {
+  font-size: 14px;
+  font-weight: 400;
+  border: 0;
+  color: #fff;
+  background: #41b412;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  border-radius: 2px;
+  padding: 8px 48px;
+}
+
+//helpers
+.mt30 {
+  margin-top: 30px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mtb30 {
+  margin: 30px 0;
+}

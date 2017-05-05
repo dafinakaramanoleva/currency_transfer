@@ -1,0 +1,39 @@
+table {
+  margin: 50px 0 0;
+
+  th {
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center!important;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+  }
+
+  tbody {
+    tr {
+      padding: 5px;
+      td {
+        font-size: 16px;
+        line-height: 34px;
+        font-weight: 300;
+        color: #555;
+
+        button {
+          color: #e53935;
+          background-color: transparent;
+          border: none;
+
+          &:focus, &:hover, &:active {
+            outline: none;
+            color: #ce332f;
+          }
+        }
+      }
+
+      &:hover {
+        background: aliceblue;
+      }
+    }
+  }
+}
